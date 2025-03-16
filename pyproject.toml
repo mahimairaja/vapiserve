@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vapiserve"
-version = "0.0.4"
+version = "0.0.3"
 description = "A framework for building API servers for Vapi custom tools with integrated service providers"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -72,9 +72,9 @@ ngrok = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/vapi-ai/vapiserve"
-"Bug Tracker" = "https://github.com/vapi-ai/vapiserve/issues"
-"Documentation" = "https://vapiserve.readthedocs.io/"
+"Homepage" = "https://github.com/mahimairaja/vapiserve"
+"Bug Tracker" = "https://github.com/mahimairaja/vapiserve/issues"
+"Documentation" = "https://mahimairaja.github.io/vapiserve"
 
 [project.scripts]
 vapiserve = "vapiserve.cli:main"

@@ -44,6 +44,7 @@ jobs:
           pip install pillow cairosvg
           pip install mike # For versioning support
           pip install pyyaml-env-tag # For environment variable support
+          pip list # List installed packages for debugging
           
       - name: Configure Git user
         run: |
@@ -55,7 +56,7 @@ jobs:
       
       - name: Build MkDocs site
         run: |
-          mkdocs build
+          mkdocs build --verbose
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
