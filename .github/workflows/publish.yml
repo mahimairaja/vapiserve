@@ -1,0 +1,59 @@
+name: Build and Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'  # Run when tag is pushed that matches v*, e.g. v0.0.4
+
+jobs:
+  build-and-publish:
+    name: Build and Publish to PyPI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install uv and dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          export PATH="/root/.cargo/bin:$PATH"  # Add uv to PATH
+          uv --version
+      
+      - name: Build package
+        run: |
+          export PATH="/root/.cargo/bin:$PATH"
+          uv build --no-sources  # Build without relying on tool.uv.sources
+      
+      - name: List distribution files
+        run: |
+          ls -la dist/
+      
+      - name: Test wheel is installable
+        run: |
+          export PATH="/root/.cargo/bin:$PATH"
+          mkdir -p tmp_test
+          cd tmp_test
+          # Create virtual environment and test install
+          uv venv .venv-test
+          source .venv-test/bin/activate
+          uv pip install ../dist/*.whl
+          # Test import works
+          python -c "import vapiserve; print(f'Successfully imported vapiserve')"
+          cd ..
+      
+      - name: Publish to PyPI
+        # Only publish on tag push, not PR
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          export PATH="/root/.cargo/bin:$PATH"
+          # Publish using the PyPI token from secrets
+          uv publish --token $PYPI_TOKEN 
