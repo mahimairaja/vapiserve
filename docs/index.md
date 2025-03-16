@@ -13,8 +13,8 @@
 - :fontawesome-solid-server: **FastAPI Integration**  
   Built on FastAPI for high performance and easy deployment
 
-<!-- - :fontawesome-solid-phone: **Vapi Compatible**  
-  Seamless integration with Vapi's voice AI platform -->
+- :fontawesome-solid-phone: **Vapi Compatible**  
+  Seamless integration with Vapi's voice AI platform
 
 - :fontawesome-solid-puzzle-piece: **Modular Integrations**  
   Connect with popular services across multiple categories
