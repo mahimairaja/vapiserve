@@ -1,0 +1,107 @@
+/* Custom styles for VapiServe documentation */
+
+/* Logo size adjustment */
+.md-header__button.md-logo {
+  padding: 0.2rem;
+}
+
+.md-header__button.md-logo img {
+  height: 2rem;
+}
+
+/* Cards layout for features on homepage */
+.grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  margin: 1rem 0;
+}
+
+.grid.cards > * {
+  border-radius: 0.2rem;
+  box-shadow: var(--md-shadow-z1);
+  display: block;
+  padding: 1rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.grid.cards > *:hover {
+  box-shadow: var(--md-shadow-z2);
+  transform: translateY(-0.1rem);
+}
+
+/* Icons in cards */
+.grid.cards > * > :first-child {
+  margin-top: 0;
+}
+
+/* Code highlighting enhancements */
+.highlight .hll {
+  background-color: rgba(var(--md-code-hl-color), 0.25);
+}
+
+/* Admonition styling */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+
+/* Custom colors for integration categories */
+[data-md-color-scheme="default"] {
+  --scheduling-color: #4051b5;
+  --tasks-color: #e91e63;
+  --communication-color: #00bcd4;
+  --storage-color: #ff9800;
+  --email-color: #4caf50;
+  --ai-color: #9c27b0;
+}
+
+[data-md-color-scheme="slate"] {
+  --scheduling-color: #5c6bc0;
+  --tasks-color: #f06292;
+  --communication-color: #26c6da;
+  --storage-color: #ffb74d;
+  --email-color: #81c784;
+  --ai-color: #ba68c8;
+}
+
+/* Category labels */
+.category-label {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.category-scheduling {
+  background-color: var(--scheduling-color);
+}
+
+.category-tasks {
+  background-color: var(--tasks-color);
+}
+
+.category-communication {
+  background-color: var(--communication-color);
+}
+
+.category-storage {
+  background-color: var(--storage-color);
+}
+
+.category-email {
+  background-color: var(--email-color);
+}
+
+.category-ai {
+  background-color: var(--ai-color);
+}
+
+/* Search result highlighting */
+.md-search-result__highlight {
+  color: var(--md-accent-fg-color);
+} 

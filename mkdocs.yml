@@ -1,0 +1,155 @@
+site_name: VapiServe
+site_url: https://mahimairaja.github.io/vapiserve
+site_description: A framework for building API servers for Vapi custom tools with integrated service providers
+site_author: Mahimai Raja
+
+repo_name: mahimairaja/vapiserve
+repo_url: https://github.com/mahimairaja/vapiserve
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    # Repository related features
+    - navigation.instant
+    - header.autohide
+    - navigation.footer
+    # - content.action.edit
+    # - content.action.view
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            docstring_style: google
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quickstart: getting-started/quickstart.md
+    - Key Features: getting-started/features.md
+  - User Guide:
+    - Core Concepts: user-guide/core-concepts.md
+    - Creating Tools: user-guide/creating-tools.md
+    - Serving Tools: user-guide/serving-tools.md
+    - Tool Parameters: user-guide/tool-parameters.md
+  - Integrations:
+    - Overview: integrations/overview.md
+    - Scheduling:
+      - Google Calendar: integrations/scheduling/google-calendar.md
+      - Outlook Calendar: integrations/scheduling/outlook-calendar.md
+    - Tasks:
+      - Todoist: integrations/tasks/todoist.md
+    - Communication:
+      - Slack: integrations/communication/slack.md
+      - Twilio: integrations/communication/twilio.md
+    - Storage:
+      - AWS S3: integrations/storage/aws-s3.md
+      - Google Cloud Storage: integrations/storage/google-cloud-storage.md
+    - Email:
+      - SendGrid: integrations/email/sendgrid.md
+    - AI:
+      - OpenAI: integrations/ai/openai.md
+      - Anthropic: integrations/ai/anthropic.md
+  - Cookbook: 
+    - Overview: cookbook/index.md
+    - Basic Example: cookbook/basic-example.md
+    - Ngrok Example: cookbook/ngrok-example.md
+    - Calendar Example: cookbook/calendar-example.md
+    - Storage Example: cookbook/storage-example.md
+  - Deployment:
+    - Overview: deployment/overview.md
+    - Local Development: deployment/local.md
+    - Ngrok Tunneling: deployment/ngrok.md
+    - Cloud Deployment: deployment/cloud.md
+  - API Reference:
+    - Overview: api/index.md
+    - Tools: api/tools.md
+    - Core: api/core.md
+    - Utils: api/utils.md
+  - Contributing:
+    - Guidelines: contributing/guidelines.md
+    - Development Setup: contributing/development.md
+    - Roadmap: contributing/roadmap.md
+  - FAQ: faq.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mahimairaja/vapiserve
+    - icon: fontawesome/brands/twitter
+    - icon: fontawesome/brands/discord
+  # Repository information
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  # Add repository information display
+  repository:
+    stats: true
+    view: true 
+    url: https://github.com/mahimairaja/vapiserve
+    icon: fontawesome/brands/github
+  # Show last update timestamp
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2023 - 2024 Vapi
