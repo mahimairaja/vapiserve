@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vapiserve"
-version = "0.0.3"
+version = "0.0.4"
 description = "A framework for building API servers for Vapi custom tools with integrated service providers"
 readme = "README.md"
 requires-python = ">=3.8"

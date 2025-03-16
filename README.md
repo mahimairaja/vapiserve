@@ -1,7 +1,11 @@
 # VapiServe
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mahimairaja/vapiserve/main/docs/assets/logo-image.png" alt="VapiServe Logo" width="250"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-image.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-image.png">
+    <img alt="VapiServe Logo" src="https://raw.githubusercontent.com/mahimairaja/vapiserve/main/docs/assets/logo-image.png" width="250">
+  </picture>
 </p>
 
 <p align="center">
