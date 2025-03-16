@@ -26,8 +26,11 @@ from vapiserve import tool, serve
 
 @tool(name="echo")
 async def echo(message: str = "Hello") -> dict:
-    """Returns the input message."""
-    return {"message": f"You said: {message}"}
+    # Add your tool logic here
+    ...
+    message = f"You said: {message}"
+    
+    return {"message": message}
 
 if __name__ == "__main__":
     serve(echo, port=8000)
@@ -66,3 +69,6 @@ Contributions are welcome. Kindly fork the repository, create a feature branch, 
 ## License
 
 This project is licensed under the MIT License.
+
+
+Made with ❤️ by [Mahimai Raja](https://github.com/mahimairaja)
