@@ -23,6 +23,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,6 +43,7 @@ jobs:
           pip install mkdocstrings[python]
           pip install pillow cairosvg
           pip install mike # For versioning support
+          pip install pyyaml-env-tag # For environment variable support
           
       - name: Configure Git user
         run: |
