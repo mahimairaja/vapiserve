@@ -49,7 +49,7 @@ theme:
 plugins:
   - search
   - autorefs
-  - pyyaml-env-tag
+  - yaml_env_tag
   - mkdocstrings:
       handlers:
         python:

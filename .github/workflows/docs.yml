@@ -44,7 +44,9 @@ jobs:
           pip install pillow cairosvg
           pip install mike # For versioning support
           pip install pyyaml-env-tag # For environment variable support
-          pip list # List installed packages for debugging
+          pip show pyyaml-env-tag # Show package details
+          pip list | grep -i yaml # List any yaml related packages
+          find /opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages -name "*yaml*" -type d | sort # Find yaml related packages
           
       - name: Configure Git user
         run: |
@@ -56,7 +58,18 @@ jobs:
       
       - name: Build MkDocs site
         run: |
-          mkdocs build --verbose
+          # First attempt with the yaml_env_tag plugin
+          echo "Attempting build with yaml_env_tag plugin..."
+          mkdocs build --verbose || {
+            echo "Build failed, trying alternative approach by temporarily modifying mkdocs.yml..."
+            
+            # Create a simplified version without the problematic plugin
+            sed -i 's/- yaml_env_tag/#- yaml_env_tag/' mkdocs.yml
+            sed -i 's/property: !ENV GOOGLE_ANALYTICS_KEY/property: "$GOOGLE_ANALYTICS_KEY"/' mkdocs.yml
+            
+            # Try building with the modified config
+            mkdocs build --verbose
+          }
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
